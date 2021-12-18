@@ -8,11 +8,6 @@ public class Camera : MonoBehaviour
     public GameObject player;
     public Vector3 delta;
 
-    private void Start()
-    {
-        
-    }
-
     void Update()
     {
         transform.position = player.transform.position + delta;
