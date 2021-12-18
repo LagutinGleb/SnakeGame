@@ -11,8 +11,9 @@ public class BadSector : MonoBehaviour
         child.HP = BadSectorHP;
     }
 
-    public void UpdateHP()
+    public void UpdateBadSectorHP()
     {
         child.HP = BadSectorHP;
+        child.UpdateVisualisation();
     }
 }

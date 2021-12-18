@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    int HP = 10;
-    Controls controls = new Controls();
-    
-    
+    public int HP = 10;
+    public GameObject childe;
+    PlayerHPVisualisation playerHPvisualise;
+
     void Start()
     {
-        
+      playerHPvisualise = childe.GetComponent<PlayerHPVisualisation>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -18,8 +18,10 @@ public class Player : MonoBehaviour
         if (collision.collider.TryGetComponent(out BadSector badSector))
         {
             HP--;
+            playerHPvisualise.UpdateVisualisation();
+
             badSector.BadSectorHP--;
-            badSector.UpdateHP();
+            badSector.UpdateBadSectorHP();
 
             if (HP == 0)
             {
@@ -35,19 +37,8 @@ public class Player : MonoBehaviour
         if (collision.collider.TryGetComponent(out Eat eat))
         {
             HP += eat.HP;
+            playerHPvisualise.UpdateVisualisation();
             Destroy(eat.gameObject);
         }
     }
-
-    void FixedUpdate()
-    {
-            
-    }
-
-    void Update()
-    {
-        
-    }
-
-
 }

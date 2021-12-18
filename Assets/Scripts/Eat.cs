@@ -6,5 +6,5 @@ public class Eat : MonoBehaviour
 {
     public int HP;
 
-    
+
 }
