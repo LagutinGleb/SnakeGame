@@ -1,21 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BadSector : MonoBehaviour
 {
-   public int BadSectorHP = 2;
-    
-    
-    // Start is called before the first frame update
-    void Start()
+    public int BadSectorHP;
+    private SectorHPvisualisation child;
+
+    private void Start()
     {
-        
+        child = GetComponentInChildren<SectorHPvisualisation>();
+        child.HP = BadSectorHP;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateHP()
     {
-        
+        child.HP = BadSectorHP;
     }
 }

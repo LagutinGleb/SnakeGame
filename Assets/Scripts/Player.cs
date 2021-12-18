@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
         {
             HP--;
             badSector.BadSectorHP--;
+            badSector.UpdateHP();
 
             if (HP == 0)
             {
