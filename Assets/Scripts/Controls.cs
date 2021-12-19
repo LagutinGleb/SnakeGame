@@ -6,20 +6,16 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour
 {
-    private float ForvardSpeed = 5f;
+    public float ForvardSpeed = 5f;
     private float strafeSpeed = 5f;
     public Rigidbody PlayerRB;
     float moovment;
-    private float boulForce = 50f;
-    private bool canGoForward = true;
+    public float boulForce = 5f;
     
    
     void Start()
     {
-        if (canGoForward)
-        {
-            MooveForward();
-        }
+        StartMooveForward();
     }
 
     void FixedUpdate()
@@ -38,7 +34,12 @@ public class Controls : MonoBehaviour
 
     private void MooveForward()
     {
-         PlayerRB.AddForce(new Vector3(0, 0, ForvardSpeed), ForceMode.VelocityChange);
+         PlayerRB.AddForce(new Vector3(0, 0, ForvardSpeed * 2), ForceMode.Impulse);
+    }
+    
+    private void StartMooveForward()
+    {
+        PlayerRB.AddForce(new Vector3(0, 0, ForvardSpeed), ForceMode.Impulse);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -53,10 +54,8 @@ public class Controls : MonoBehaviour
 
     public async void Boul()
     {
-        
-        PlayerRB.AddForce(new Vector3(0, 0, -boulForce), ForceMode.Force);
-        await Task.Delay (200);
+        PlayerRB.AddForce(new Vector3(0, 0, -boulForce), ForceMode.Impulse);
+        await Task.Delay (150);
         MooveForward();
-       
     }
 }

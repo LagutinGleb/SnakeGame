@@ -194,7 +194,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 345575805}
-  - component: {fileID: 345575806}
   m_Layer: 0
   m_Name: collider
   m_TagString: Untagged
@@ -216,19 +215,6 @@ Transform:
   m_Father: {fileID: 3366300860450271971}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &345575806
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345575804}
-  m_Material: {fileID: 13400000, guid: 14a0daa7cbbb12f449dffc1c3637312d, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 7.349389, y: 1.3536615, z: 6.4514713}
-  m_Center: {x: -2.0212889, y: 0.1768294, z: 2.7257354}
 --- !u!1001 &3366300860450400355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8203a6cd21f7c4440a892cfbe5bb4141, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8203a6cd21f7c4440a892cfbe5bb4141, type: 3}
       propertyPath: m_LocalScale.z
@@ -320,19 +306,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 8203a6cd21f7c4440a892cfbe5bb4141, type: 3}
   m_PrefabInstance: {fileID: 3366300860450400355}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1712198230
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366300860450434755}
-  m_Material: {fileID: 13400000, guid: 14a0daa7cbbb12f449dffc1c3637312d, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 7.3910346, y: 1.9999999, z: 1.0635606}
-  m_Center: {x: 0, y: 0, z: -3.163737}
 --- !u!114 &1712198225
 MonoBehaviour:
   m_ObjectHideFlags: 0

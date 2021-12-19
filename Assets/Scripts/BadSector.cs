@@ -3,16 +3,23 @@ using UnityEngine;
 
 public class BadSector : MonoBehaviour
 {
+    [Min(0)]
     public int BadSectorHP;
+    private int MaxBadSectorHP = 20;
     private SectorHPvisualisation child;
     public  Material material;
-
+    Gradient gradient = new Gradient();
 
     private void Start()
     {
+        if (BadSectorHP > MaxBadSectorHP)
+        {
+            BadSectorHP = MaxBadSectorHP;
+        }
         child = GetComponentInChildren<SectorHPvisualisation>();
         child.HP = BadSectorHP;
-        SetColour();
+        MakeGradient();
+        SetColour(gradient);
     }
 
 
@@ -20,13 +27,16 @@ public class BadSector : MonoBehaviour
     {
         child.HP = BadSectorHP;
         child.UpdateVisualisation();
-        SetColour();
+        SetColour(gradient);
     }
 
-    private void SetColour()
+    private void SetColour(Gradient g)
     {
+        gameObject.GetComponent<Renderer>().material.color = g.Evaluate((float)child.HP/MaxBadSectorHP);
+    }
 
-        Gradient g = new Gradient();
+    void MakeGradient()
+    {
         GradientColorKey[] gck = new GradientColorKey[2];
         GradientAlphaKey[] gak = new GradientAlphaKey[2];
         gck[0].color = Color.red;
@@ -41,15 +51,7 @@ public class BadSector : MonoBehaviour
         gak[1].alpha = 0.0F;
         gak[1].time = -1.0F;
 
-        g.SetKeys(gck, gak);
-
-        // максимум 20
-        // минимум 1
-        // допустим 10
-
-        gameObject.GetComponent<Renderer>().material.color = g.Evaluate(child.HP/20f);
-        
-
+        gradient.SetKeys(gck, gak);
     }
 
 }

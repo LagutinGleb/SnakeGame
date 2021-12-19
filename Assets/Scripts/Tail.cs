@@ -53,7 +53,7 @@ public class Tail : MonoBehaviour
 
         if (collision.collider.TryGetComponent(out BadSector badSector))
         {
-          //  RemoveBall();
+          // RemoveBall();
         }
 
         if (collision.collider.TryGetComponent(out Food eat))
