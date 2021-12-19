@@ -16,10 +16,10 @@ public class Tail : MonoBehaviour
     void Start()
     {
         positions.Add(Head.position);
-        AddBody();
-        AddBody();
-        AddBody();
-        AddBody();
+        AddBall();
+        AddBall();
+        AddBall();
+        AddBall();
     }
 
     void Update()
@@ -39,10 +39,9 @@ public class Tail : MonoBehaviour
         {
             tail[i].position = Vector3.Lerp(positions[i + 1], positions[i], _distance / BodyDiameter);
         }
-
     }
 
-    public void AddBody()
+    public void AddBall()
     {
         GameObject ball = Instantiate(TailPrefab, positions[positions.Count - 1], Quaternion.identity, transform);
         tail.Add(ball.transform);
@@ -54,19 +53,19 @@ public class Tail : MonoBehaviour
 
         if (collision.collider.TryGetComponent(out BadSector badSector))
         {
-            RemoveBody();
+          //  RemoveBall();
         }
 
         if (collision.collider.TryGetComponent(out Food eat))
         {
             for (int i = 0; i < eat.HP; i++)
             {
-                AddBody();
+                AddBall();
             }
         }
     }
 
-    public void RemoveBody()
+    public void RemoveBall()
     {
         Destroy(tail[0].gameObject);
         tail.RemoveAt(0);

@@ -24,7 +24,6 @@ public class Controls : MonoBehaviour
 
     void FixedUpdate()
     {
-       
         moovment = Input.GetAxis("Horizontal");
 
         if (moovment > 0)
@@ -54,10 +53,10 @@ public class Controls : MonoBehaviour
 
     public async void Boul()
     {
-        canGoForward = false;
+        
         PlayerRB.AddForce(new Vector3(0, 0, -boulForce), ForceMode.Force);
         await Task.Delay (200);
         MooveForward();
-        canGoForward = true;
+       
     }
 }

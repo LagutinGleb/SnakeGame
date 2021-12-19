@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     public int HP = 10;
     public GameObject childe;
     PlayerHPVisualisation playerHPvisualise;
-    Tail tail;
 
     void Start()
     {
@@ -40,11 +39,6 @@ public class Player : MonoBehaviour
             HP += eat.HP;
             playerHPvisualise.UpdateVisualisation();
             Destroy(eat.gameObject);
-            
-            //for (int i = 0; i < eat.HP; i++)
-            //{
-            //tail.AddBody();
-            //}
         }
     }
 }
