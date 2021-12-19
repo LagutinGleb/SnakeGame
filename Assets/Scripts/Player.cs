@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (collision.collider.TryGetComponent(out Eat eat))
+        if (collision.collider.TryGetComponent(out Food eat))
         {
             HP += eat.HP;
             playerHPvisualise.UpdateVisualisation();

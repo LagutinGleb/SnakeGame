@@ -22,14 +22,9 @@ public class Controls : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        //if (canGoForward)
-        //{
-        //MooveForward();
-        //}
-
+       
         moovment = Input.GetAxis("Horizontal");
 
         if (moovment > 0)
@@ -45,8 +40,6 @@ public class Controls : MonoBehaviour
     private void MooveForward()
     {
          PlayerRB.AddForce(new Vector3(0, 0, ForvardSpeed), ForceMode.VelocityChange);
-        //PlayerRB.transform.position += new Vector3(0, 0, 1) * ForvardSpeed * Time.deltaTime;
-
     }
 
     private void OnCollisionEnter(Collision collision)
