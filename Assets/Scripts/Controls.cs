@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -8,13 +5,17 @@ public class Controls : MonoBehaviour
 {
     public float ForvardSpeed = 5f;
     private float strafeSpeed = 5f;
-    public Rigidbody PlayerRB;
+    private Rigidbody PlayerRB;
     float moovment;
     public float boulForce = 5f;
+
+    public GameObject Head;
     
    
     void Start()
     {
+        PlayerRB = Head.GetComponent<Rigidbody>();
+       // Instantiate(HeadPrefab, new Vector3(0, 0.26f, -3), Quaternion.identity,transform);
         StartMooveForward();
     }
 

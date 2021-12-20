@@ -53,7 +53,7 @@ public class Tail : MonoBehaviour
 
         if (collision.collider.TryGetComponent(out BadSector badSector))
         {
-          // RemoveBall();
+        //   RemoveBall();
         }
 
         if (collision.collider.TryGetComponent(out Food eat))
@@ -68,6 +68,7 @@ public class Tail : MonoBehaviour
     public void RemoveBall()
     {
         Destroy(tail[0].gameObject);
+        //tail[0].gameObject.SetActive(false);
         tail.RemoveAt(0);
         positions.RemoveAt(1);
     }

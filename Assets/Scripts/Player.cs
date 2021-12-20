@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public int HP = 10;
     public GameObject childe;
     PlayerHPVisualisation playerHPvisualise;
+ 
+    
 
     void Start()
     {
@@ -20,12 +21,12 @@ public class Player : MonoBehaviour
             HP--;
             playerHPvisualise.UpdateVisualisation();
 
-            badSector.BadSectorHP--;
-            badSector.UpdateBadSectorHP();
+            //badSector.BadSectorHP--;
+            //badSector.UpdateBadSectorHP();
 
             if (HP == 0)
             {
-                Debug.Log("game over"); 
+               SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
 
             if (badSector.BadSectorHP == 0)
@@ -34,11 +35,12 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (collision.collider.TryGetComponent(out Food eat))
+        if (collision.collider.TryGetComponent(out Food food))
         {
-            HP += eat.HP;
-            playerHPvisualise.UpdateVisualisation();
-            Destroy(eat.gameObject);
+            //HP += food.HP;
+            //playerHPvisualise.UpdateVisualisation();
+            //Destroy(food.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
