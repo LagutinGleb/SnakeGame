@@ -21,12 +21,12 @@ public class Player : MonoBehaviour
             HP--;
             playerHPvisualise.UpdateVisualisation();
 
-            //badSector.BadSectorHP--;
-            //badSector.UpdateBadSectorHP();
+            badSector.BadSectorHP--;
+            badSector.UpdateBadSectorHP();
 
             if (HP == 0)
             {
-               SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
 
             if (badSector.BadSectorHP == 0)
@@ -37,9 +37,9 @@ public class Player : MonoBehaviour
 
         if (collision.collider.TryGetComponent(out Food food))
         {
-            //HP += food.HP;
-            //playerHPvisualise.UpdateVisualisation();
-            //Destroy(food.gameObject);
+            HP += food.HP;
+            playerHPvisualise.UpdateVisualisation();
+            Destroy(food.gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

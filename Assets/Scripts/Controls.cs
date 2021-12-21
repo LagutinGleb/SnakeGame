@@ -10,12 +10,11 @@ public class Controls : MonoBehaviour
     public float boulForce = 5f;
 
     public GameObject Head;
-    
-   
-    void Start()
+
+
+        void  Start()
     {
         PlayerRB = Head.GetComponent<Rigidbody>();
-       // Instantiate(HeadPrefab, new Vector3(0, 0.26f, -3), Quaternion.identity,transform);
         StartMooveForward();
     }
 
@@ -35,11 +34,13 @@ public class Controls : MonoBehaviour
 
     private void MooveForward()
     {
-         PlayerRB.AddForce(new Vector3(0, 0, ForvardSpeed * 2), ForceMode.Impulse);
+        if (PlayerRB == null) return;
+        PlayerRB.AddForce(new Vector3(0, 0, ForvardSpeed * 2), ForceMode.Impulse);
     }
     
     private void StartMooveForward()
     {
+        if (PlayerRB == null) return;
         PlayerRB.AddForce(new Vector3(0, 0, ForvardSpeed), ForceMode.Impulse);
     }
 

@@ -5,13 +5,13 @@ public class Game : MonoBehaviour
 {
     public Canvas canvasLose;
 
-    public  void OnPlayerDie()
+    public void OnPlayerDie()
     {
         canvasLose.gameObject.SetActive(true);
-        restartLevel();
+        RestartLevel();
     }
 
-    private void restartLevel()
+    private void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

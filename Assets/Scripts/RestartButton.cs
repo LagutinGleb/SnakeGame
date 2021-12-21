@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class RestartButton : MonoBehaviour
 {
-  void Restatrtlevel()
-    {
-      //  Game.OnPlayerDie();
-    }
+   
 }

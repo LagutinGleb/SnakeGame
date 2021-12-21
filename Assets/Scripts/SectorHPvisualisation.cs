@@ -5,8 +5,6 @@ public class SectorHPvisualisation : MonoBehaviour
 {
     public TextMeshPro text;
     public int HP;
-    GameObject parent;
-    
 
     private void Start ()
     {
