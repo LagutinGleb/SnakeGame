@@ -9,13 +9,15 @@ public class Player : MonoBehaviour
     public GameObject camera;
     Game game;
     public ParticleSystem particalSystemBlockCrash;
-    
+    private AudioSource brakeSound;
+
 
     void Start()
     {
         playerHPvisualise = childe.GetComponent<PlayerHPVisualisation>();
         game = camera.GetComponent<Game>();
-        
+        brakeSound = GetComponent<AudioSource>();
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -29,6 +31,8 @@ public class Player : MonoBehaviour
             badSector.BadSectorHP--;
             badSector.UpdateBadSectorHP();
 
+          //  AudioSource brakeSound = badSector.gameObject.transform.GetComponent<AudioSource>();
+
             if (HP == 0)
             {
                 game.OnPlayerDie();
@@ -37,8 +41,12 @@ public class Player : MonoBehaviour
             if (badSector.BadSectorHP == 0)
             {
                 particalSystemBlockCrash.transform.position = collision.gameObject.transform.position;
+                
+                brakeSound.Play();
                 Destroy(collision.gameObject);
                 particalSystemBlockCrash.Play();
+       
+
             }
         }
 
