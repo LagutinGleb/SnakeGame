@@ -8,19 +8,14 @@ public class Controls : MonoBehaviour
     private Rigidbody PlayerRB;
     float moovment;
     public float boulForce = 5f;
-    //public Game game;
     public GameObject Head;
-
+    private Vector3 normalPlayerMoove = Vector3.forward;
+    private float dot;
+    
 
         void  Start()
     {
         PlayerRB = Head.GetComponent<Rigidbody>();
-
-        //if (!game.firstStart)
-        //{
-        // StartMooveForward();
-        //}
-        
     }
 
     void FixedUpdate()
@@ -46,13 +41,19 @@ public class Controls : MonoBehaviour
     public void StartMooveForward()
     {
         if (PlayerRB == null) return;
-        PlayerRB.AddForce(new Vector3(0, 0, ForvardSpeed), ForceMode.Impulse);
+        PlayerRB.AddForce(new Vector3(0, 0, ForvardSpeed), ForceMode.VelocityChange);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.TryGetComponent(out BadSector badSector))
         {
+            dot = Vector3.Dot(collision.contacts[0].normal.normalized, normalPlayerMoove.normalized);
+            Debug.Log(dot);
+            if (dot != -1)
+            {
+                PlayerRB.velocity = Vector3.zero;
+            }
             Boul();
         }
 
@@ -61,10 +62,8 @@ public class Controls : MonoBehaviour
 
     public async void Boul()
     {
-        PlayerRB.AddForce(new Vector3(0, 0, -boulForce), ForceMode.Impulse);
+        PlayerRB.AddForce(new Vector3(0, 0, -boulForce), ForceMode.VelocityChange);
         await Task.Delay (150);
         MooveForward();
     }
-
-
 }

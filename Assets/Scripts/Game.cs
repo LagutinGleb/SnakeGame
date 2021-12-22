@@ -21,9 +21,6 @@ public class Game : MonoBehaviour
         }
         firstStart = false;
 
-        //sceneCountInBildSettings = SceneManager.sceneCount;
-       // Debug.Log(sceneCountInBildSettings);
-
         backGround = GetComponent<AudioSource>();
     }
 
@@ -44,20 +41,8 @@ public class Game : MonoBehaviour
             return;
         }
         
-        
         player.gameObject.SetActive(false);
         ui.ShowUIPanelWin();
         backGround.Stop();
     }
-
-
-
-
-
-    //private void RestartLevel()
-    //{
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    //}
-
-
 }

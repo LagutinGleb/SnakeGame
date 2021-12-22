@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     Game game;
     public ParticleSystem particalSystemBlockCrash;
     private AudioSource brakeSound;
+    private float dot;
+    private Vector3 normalPlayerMoove = Vector3.forward;
 
 
     void Start()
@@ -17,13 +19,20 @@ public class Player : MonoBehaviour
         playerHPvisualise = childe.GetComponent<PlayerHPVisualisation>();
         game = camera.GetComponent<Game>();
         brakeSound = GetComponent<AudioSource>();
-
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.TryGetComponent(out BadSector badSector))
         {
+            //dot = Vector3.Dot(collision.contacts[0].normal.normalized, normalPlayerMoove.normalized);
+            //Debug.Log(dot);
+            //if (dot != -1)
+            //{
+            //    return;
+            //}
+
+
             HP--;
             playerHPvisualise.UpdateVisualisation();
             UI.score++;
@@ -43,8 +52,6 @@ public class Player : MonoBehaviour
                 brakeSound.Play();
                 Destroy(collision.gameObject);
                 particalSystemBlockCrash.Play();
-       
-
             }
         }
 
