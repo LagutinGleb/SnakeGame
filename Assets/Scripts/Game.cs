@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
     public bool firstStart = true;
     public GameObject panelStart;
     private int sceneCountInBildSettings;
+    private AudioSource backGround;
 
 
 
@@ -20,28 +21,33 @@ public class Game : MonoBehaviour
         }
         firstStart = false;
 
-        sceneCountInBildSettings = SceneManager.sceneCount;
-        Debug.Log(sceneCountInBildSettings);
+        //sceneCountInBildSettings = SceneManager.sceneCount;
+       // Debug.Log(sceneCountInBildSettings);
+
+        backGround = GetComponent<AudioSource>();
     }
 
     public void OnPlayerDie()
     {
         player.gameObject.SetActive(false);
         ui.ShowUIPanelLose();
+        backGround.Stop();
     }
 
     public void OnPlayerWin()
     {
-        if (SceneManager.GetActiveScene().buildIndex + 1 == sceneCountInBildSettings)
+        if (SceneManager.GetActiveScene().buildIndex == 2) //почему то не отрабатывает SceneManager.sceneCount
         {
             player.gameObject.SetActive(false);
             ui.ShowUIPanelGamePassed();
+            backGround.Stop();
             return;
         }
         
         
         player.gameObject.SetActive(false);
         ui.ShowUIPanelWin();
+        backGround.Stop();
     }
 
 

@@ -31,8 +31,6 @@ public class Player : MonoBehaviour
             badSector.BadSectorHP--;
             badSector.UpdateBadSectorHP();
 
-          //  AudioSource brakeSound = badSector.gameObject.transform.GetComponent<AudioSource>();
-
             if (HP == 0)
             {
                 game.OnPlayerDie();

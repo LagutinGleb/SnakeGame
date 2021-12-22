@@ -5,6 +5,6 @@ public class ButtonRestartAllTheGame : MonoBehaviour
 {
     public void RestartAllTheGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(0);
     }
 }
