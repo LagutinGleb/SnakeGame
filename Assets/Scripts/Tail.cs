@@ -52,6 +52,8 @@ public class Tail : MonoBehaviour
 
         if (collision.collider.TryGetComponent(out BadSector badSector))
         {
+            if (positions.Count == 1) return;
+            
               RemoveBall();
         }
 

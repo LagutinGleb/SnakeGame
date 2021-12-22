@@ -1,18 +1,42 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
-    public Canvas canvasLose;
+    public UI ui;
+    public Player player;
+    public bool firstStart = true;
+    public GameObject panelStart;
+  
+
+    private void Start()
+    {
+        if (firstStart)
+        {
+            panelStart.gameObject.SetActive(true);
+        }
+        firstStart = false;
+    }
 
     public void OnPlayerDie()
     {
-        canvasLose.gameObject.SetActive(true);
-        RestartLevel();
+        player.gameObject.SetActive(false);
+        ui.ShowUIPanelLose();
     }
 
-    private void RestartLevel()
+    public void OnPlayerWin()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        player.gameObject.SetActive(false);
+        ui.ShowUIPanelWin();
     }
+
+
+
+    //private void RestartLevel()
+    //{
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    //}
+
+
 }

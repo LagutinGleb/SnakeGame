@@ -8,14 +8,19 @@ public class Controls : MonoBehaviour
     private Rigidbody PlayerRB;
     float moovment;
     public float boulForce = 5f;
-
+    //public Game game;
     public GameObject Head;
 
 
         void  Start()
     {
         PlayerRB = Head.GetComponent<Rigidbody>();
-        StartMooveForward();
+
+        //if (!game.firstStart)
+        //{
+        // StartMooveForward();
+        //}
+        
     }
 
     void FixedUpdate()
@@ -38,7 +43,7 @@ public class Controls : MonoBehaviour
         PlayerRB.AddForce(new Vector3(0, 0, ForvardSpeed * 2), ForceMode.Impulse);
     }
     
-    private void StartMooveForward()
+    public void StartMooveForward()
     {
         if (PlayerRB == null) return;
         PlayerRB.AddForce(new Vector3(0, 0, ForvardSpeed), ForceMode.Impulse);
@@ -60,4 +65,6 @@ public class Controls : MonoBehaviour
         await Task.Delay (150);
         MooveForward();
     }
+
+
 }

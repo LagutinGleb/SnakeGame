@@ -194,6 +194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 345575805}
+  - component: {fileID: 6156288073934130044}
   m_Layer: 0
   m_Name: collider
   m_TagString: Untagged
@@ -209,12 +210,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345575804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.05, y: 0.14, z: -2.11}
+  m_LocalPosition: {x: -0.83333325, y: -0.75, z: 0.23333389}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3366300860450271971}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6156288073934130044
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345575804}
+  m_Material: {fileID: 13400000, guid: 14a0daa7cbbb12f449dffc1c3637312d, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.3740864, y: 2.0760617, z: 5.2336364}
+  m_Center: {x: 0.25687057, y: 0.5380309, z: -0.45802236}
 --- !u!1001 &3366300860450400355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,7 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6400000, guid: 8203a6cd21f7c4440a892cfbe5bb4141, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8203a6cd21f7c4440a892cfbe5bb4141, type: 3}
@@ -306,6 +320,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 8203a6cd21f7c4440a892cfbe5bb4141, type: 3}
   m_PrefabInstance: {fileID: 3366300860450400355}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &3655289228682762997
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3366300860450434755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.3910346, y: 2, z: 0.907193}
+  m_Center: {x: 0, y: 0, z: -3.2419207}
 --- !u!114 &1712198225
 MonoBehaviour:
   m_ObjectHideFlags: 0
