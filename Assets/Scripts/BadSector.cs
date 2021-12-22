@@ -10,6 +10,7 @@ public class BadSector : MonoBehaviour
     public  Material material;
     Gradient gradient = new Gradient();
 
+
     private void Start()
     {
         if (BadSectorHP > MaxBadSectorHP)
