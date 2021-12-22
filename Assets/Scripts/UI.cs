@@ -9,6 +9,7 @@ public class UI : MonoBehaviour
     public Text scoreText;
     public GameObject panelLose;
     public GameObject panelWin;
+    public GameObject panelWinGame;
     private int level;
     public static int score;
 
@@ -32,5 +33,10 @@ public class UI : MonoBehaviour
     public void ShowUIPanelWin()
     {
         panelWin.gameObject.SetActive(true);
+    }
+
+    public void ShowUIPanelGamePassed()
+    {
+        panelWinGame.gameObject.SetActive(true);
     }
 }

@@ -8,7 +8,9 @@ public class Game : MonoBehaviour
     public Player player;
     public bool firstStart = true;
     public GameObject panelStart;
-  
+    private int sceneCountInBildSettings;
+
+
 
     private void Start()
     {
@@ -17,6 +19,9 @@ public class Game : MonoBehaviour
             panelStart.gameObject.SetActive(true);
         }
         firstStart = false;
+
+        sceneCountInBildSettings = SceneManager.sceneCount;
+        Debug.Log(sceneCountInBildSettings);
     }
 
     public void OnPlayerDie()
@@ -27,9 +32,19 @@ public class Game : MonoBehaviour
 
     public void OnPlayerWin()
     {
+        if (SceneManager.GetActiveScene().buildIndex + 1 == sceneCountInBildSettings)
+        {
+            player.gameObject.SetActive(false);
+            ui.ShowUIPanelGamePassed();
+            return;
+        }
+        
+        
         player.gameObject.SetActive(false);
         ui.ShowUIPanelWin();
     }
+
+
 
 
 
